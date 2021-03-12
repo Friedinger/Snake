@@ -1,9 +1,7 @@
 /* 
 
 Snake by Friedinger
-
 Version 1.0
-
 https://github.com/friedinger/
 
 */
