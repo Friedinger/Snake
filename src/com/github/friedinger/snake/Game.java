@@ -21,7 +21,7 @@ public class Game {
 	char startdirection = 'd'; //w=Up, a=Left, s=Down, d=Right
 	int startx = 0; //Range 0 to 19
 	int starty = 0; //Range 0 to 15
-	int startlength = 1; //Range 1++
+	int startlength = 1;
 	int speed = 500; //Lower equals faster
 	
 	//Start game and loop

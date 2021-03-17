@@ -47,9 +47,9 @@ public class Gui extends JFrame implements KeyListener {
 		}
 	}
 	
-	//Create Square: x-position, y-position, color (-1 fill all black, 0 black square, 1 white square, 2 red square
+	//Create Square: x-position, y-position, color (-1 fill all black, 0 black square, 1 white square, 2 red square)
 	public static void rect(int x, int y, int c) { 
-		gui.getContentPane().add(new Rect(x*50, y*50 ,c));
+		gui.getContentPane().add(new Rect(x*50, y*50, c));
 		gui.setVisible(true);
 	}
 	
