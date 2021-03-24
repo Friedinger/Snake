@@ -7,22 +7,22 @@ public class Game {
 	
 	//Program variables
 	@SuppressWarnings("rawtypes")
-	ArrayList x = new ArrayList();
+	private ArrayList x = new ArrayList();
 	@SuppressWarnings("rawtypes")
-	ArrayList y = new ArrayList();
-	int length;
-	int time = 1;
-	static char direction; //w=Up, a=Left, s=Down, d=Right
-	int foodx;
-	int foody;
-	boolean foodexist;
+	private ArrayList y = new ArrayList();
+	private int length;
+	private int time = 1;
+	private static char direction; //w=Up, a=Left, s=Down, d=Right
+	private int foodx;
+	private int foody;
+	private boolean foodexist;
 	
 	//Changeable variables
-	char startdirection = 'd'; //w=Up, a=Left, s=Down, d=Right
-	int startx = 0; //Range 0 to 19
-	int starty = 0; //Range 0 to 15
-	int startlength = 1;
-	int speed = 500; //Lower equals faster
+	private char startdirection = 'd'; //w=Up, a=Left, s=Down, d=Right
+	private int startx = 0; //Range 0 to 19
+	private int starty = 0; //Range 0 to 15
+	private int startlength = 1;
+	private int speed = 500; //Lower equals faster
 	
 	//Start game and loop
 	@SuppressWarnings("unchecked")
@@ -70,7 +70,7 @@ public class Game {
 	}
 	
 	//Check on coalition
-	public void touch() {
+	private void touch() {
 		//Wall right
 		if ((Integer)x.get(time) >= 20) {
 			System.exit(0);
@@ -96,7 +96,7 @@ public class Game {
 	}
 	
 	//Spawn food
-	public void food() {
+	private void food() {
 		if (foodexist == false) {
 			foodx = (int)(Math.random() * 20);
 			foody= (int)(Math.random() * 16);

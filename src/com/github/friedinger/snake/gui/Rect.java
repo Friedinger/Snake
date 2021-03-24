@@ -6,9 +6,9 @@ import javax.swing.JPanel;
 
 public class Rect extends JPanel {
 	private static final long serialVersionUID = 1L;
-	int rectx = 0;
-	int recty = 0;
-	int rectc = 0;
+	private int rectx = 0;
+	private int recty = 0;
+	private int rectc = 0;
 	
 	//Get parameters
 	public Rect(int x, int y, int c) {
