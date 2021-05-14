@@ -1,4 +1,4 @@
-package com.github.friedinger.snake.gui;
+package org.friedinger.snake.gui;
 
 import java.awt.Color;
 import java.awt.Graphics;

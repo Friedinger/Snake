@@ -1,3 +1,3 @@
 # Snake
  Snake by Friedinger
- https://github.com/friedinger
+ https://friedinger.org/snake

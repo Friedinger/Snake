@@ -2,13 +2,13 @@
 
 Snake by Friedinger
 Version 1.0
-https://github.com/friedinger/
+https://friedinger.org/snake/
 
 */
 
-package com.github.friedinger.snake;
+package org.friedinger.snake;
 
-import com.github.friedinger.snake.gui.Gui;
+import org.friedinger.snake.gui.Gui;
 
 public class Main {
 

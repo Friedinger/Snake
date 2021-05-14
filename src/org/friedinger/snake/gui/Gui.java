@@ -1,10 +1,11 @@
-package com.github.friedinger.snake.gui;
+package org.friedinger.snake.gui;
 
-import com.github.friedinger.snake.Game;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 //import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+
+import org.friedinger.snake.Game;
 
 public class Gui extends JFrame implements KeyListener {
 

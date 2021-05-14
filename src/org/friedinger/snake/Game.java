@@ -1,6 +1,6 @@
-package com.github.friedinger.snake;
+package org.friedinger.snake;
 
-import com.github.friedinger.snake.gui.Gui;
+import org.friedinger.snake.gui.Gui;
 import java.util.ArrayList;
 
 public class Game {
@@ -71,19 +71,19 @@ public class Game {
 	
 	//Check on coalition
 	private void touch() {
-		//Wall right
+		//Coalition with wall right
 		if ((Integer)x.get(time) >= 20) {
 			System.exit(0);
 		}
-		//Wall left
+		//Coalition with wall left
 		if ((Integer)x.get(time) < 0) {
 			System.exit(0);
 		}
-		//Wall bottom
+		//Coalition with wall bottom
 		if ((Integer)y.get(time) >= 16) {
 			System.exit(0);
 		}
-		//Wall top
+		//Coalition with wall top
 		if ((Integer)y.get(time) < 0) {
 			System.exit(0);
 		}
@@ -92,6 +92,12 @@ public class Game {
 			foodexist = false;
 			length++;
 			food();
+		}
+		//Coalition with snake
+		for (int i = 0; i < length; i++) {
+			if ((Integer)x.get(time) == (Integer)x.get(time - length + i) && (Integer)y.get(time) == (Integer)y.get(time - length + i)) {
+				System.exit(0);
+			}
 		}
 	}
 	
