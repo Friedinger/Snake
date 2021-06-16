@@ -12,6 +12,7 @@ public class Game {
 	private ArrayList y = new ArrayList();
 	private int length;
 	private int time = 1;
+	private int startlength = 1;
 	private static char direction; //w=Up, a=Left, s=Down, d=Right
 	private int foodx;
 	private int foody;
@@ -21,8 +22,7 @@ public class Game {
 	private char startdirection = 'd'; //w=Up, a=Left, s=Down, d=Right
 	private int startx = 0; //Range 0 to 19
 	private int starty = 0; //Range 0 to 15
-	private int startlength = 1;
-	private int speed = 500; //Lower equals faster
+	private int speed = 250; //Time between steps
 	
 	//Start game and loop
 	@SuppressWarnings("unchecked")
@@ -73,22 +73,27 @@ public class Game {
 	private void touch() {
 		//Coalition with wall right
 		if ((Integer)x.get(time) >= 20) {
+			System.out.println("Exit wall right");
 			System.exit(0);
 		}
 		//Coalition with wall left
 		if ((Integer)x.get(time) < 0) {
+			System.out.println("Exit wall left");
 			System.exit(0);
 		}
 		//Coalition with wall bottom
 		if ((Integer)y.get(time) >= 16) {
+			System.out.println("Exit wall bottom");
 			System.exit(0);
 		}
 		//Coalition with wall top
 		if ((Integer)y.get(time) < 0) {
+			System.out.println("Exit wall top");
 			System.exit(0);
 		}
 		//Coalition with food
 		if ((Integer)x.get(time) == foodx && (Integer)y.get(time) == foody) {
+			System.out.println("Food collected");
 			foodexist = false;
 			length++;
 			food();
@@ -96,6 +101,7 @@ public class Game {
 		//Coalition with snake
 		for (int i = 0; i < length; i++) {
 			if ((Integer)x.get(time) == (Integer)x.get(time - length + i) && (Integer)y.get(time) == (Integer)y.get(time - length + i)) {
+				System.out.println("Exit coalition with snake");
 				System.exit(0);
 			}
 		}
