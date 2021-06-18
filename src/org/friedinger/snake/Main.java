@@ -1,7 +1,7 @@
 /* 
 
 Snake by Friedinger
-Version 1.2
+Version 1.3
 https://friedinger.org/snake/
 
 */
