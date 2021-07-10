@@ -44,6 +44,7 @@ public class Game {
 			time++;
 			speed = startspeed - speedchange * (length - 1);
 			System.out.println("Speed: " + speed);
+			Gui.gui.setTitle("Snake | Score: " + length);
 			Thread.sleep(speed); //Wait
 		}
 	}
@@ -69,48 +70,48 @@ public class Game {
 				y.add((Integer)y.get(time-1));
 				break;
 		}
-		touch(); //Check on coalition 
+		touch(); //Check on collision
 		System.out.println((Integer)x.get(time));
 		System.out.println((Integer)y.get(time));
 	}
 	
-	//Check on coalition
+	//Check on collision
 	private void touch() {
-		//Coalition with wall right
+		//Collision with wall right
 		if ((Integer)x.get(time) >= 20) {
 			System.out.println("Exit wall right");
 			System.out.println("Length:" + length);
 			System.exit(0);
 		}
-		//Coalition with wall left
+		//Collision with wall left
 		if ((Integer)x.get(time) < 0) {
 			System.out.println("Exit wall left");
 			System.out.println("Length:" + length);
 			System.exit(0);
 		}
-		//Coalition with wall bottom
+		//Collision with wall bottom
 		if ((Integer)y.get(time) >= 16) {
 			System.out.println("Exit wall bottom");
 			System.out.println("Length:" + length);
 			System.exit(0);
 		}
-		//Coalition with wall top
+		//Collision with wall top
 		if ((Integer)y.get(time) < 0) {
 			System.out.println("Exit wall top");
 			System.out.println("Length: " + length);
 			System.exit(0);
 		}
-		//Coalition with food
+		//Collision with food
 		if ((Integer)x.get(time) == foodx && (Integer)y.get(time) == foody) {
 			System.out.println("Food collected");
 			foodexist = false;
 			length++;
 			food();
 		}
-		//Coalition with snake
+		//Collision with snake
 		for (int i = 0; i < length; i++) {
 			if ((Integer)x.get(time) == (Integer)x.get(time - length + i) && (Integer)y.get(time) == (Integer)y.get(time - length + i)) {
-				System.out.println("Exit coalition with snake");
+				System.out.println("Exit collision with snake");
 				System.exit(0);
 			}
 		}
@@ -120,13 +121,21 @@ public class Game {
 	private void food() {
 		if (foodexist == false) {
 			foodx = (int)(Math.random() * 20);
-			foody= (int)(Math.random() * 16);
-			System.out.print("foodx: ");
-			System.out.println(foodx);
-			System.out.print("foody: ");
-			System.out.println(foody);
-			Gui.rect(foodx, foody, 2);
-			foodexist = true;
+			foody = (int)(Math.random() * 16);
+			for (int i = 0; i <= length; i++) {
+				if(foodx == (Integer)x.get(time - length + i) && foody == (Integer)y.get(time - length + i)) {
+					food();
+					i = length + 1;
+					System.out.println("Respawn Food");
+				} else if (i == length){
+					System.out.print("foodx: ");
+					System.out.println(foodx);
+					System.out.print("foody: ");
+					System.out.println(foody);
+					Gui.rect(foodx, foody, 2);
+					foodexist = true;
+				}
+			}
 		}
 	}
 	
